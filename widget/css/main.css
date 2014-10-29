@@ -1,0 +1,14 @@
+p{
+  font-family: sans-serif;
+  font-size: 1.618rem;
+}
+
+.weather-forecast{
+
+    max-width: 800px;
+    min-width: 500px;
+
+}
+.button{
+    display: block;
+}

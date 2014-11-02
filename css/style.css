@@ -14,7 +14,7 @@ p{
   background-color: #E7FF8E;
 }
 .weather-forecast .container{
-    background-color: #86E884;
+    background-color: #538BFF;
     padding: 10px;
 }
 
@@ -22,7 +22,7 @@ p{
 
 .weather-forecast .today{
   text-align: center;
-  background-color: #E8E584;
+  background-color: #60E7FF;
   padding: 5px;
 }
 
@@ -30,7 +30,7 @@ p{
 
 /*Table Style*/
 .weather-forecast .table{
-    background-color: #A8E876;
+    background-color: #4CA7E8;
     width: 800px;
     height:400px;
     overflow-x: auto;

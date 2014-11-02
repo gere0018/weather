@@ -13,16 +13,17 @@ p{
   height:600px;
   background-color: #E7FF8E;
 }
-
+.weather-forecast .container{
+    background-color: #86E884;
+    padding: 10px;
+}
 
 /*Today's Forecast'*/
 
 .weather-forecast .today{
- 
   text-align: center;
-  padding: 10px;
-  background-repeat: no-repeat;
-  background-color: #E7FF8E;
+  background-color: #E8E584;
+  padding: 5px;
 }
 
 
@@ -31,9 +32,10 @@ p{
 .weather-forecast .table{
     background-color: #A8E876;
     width: 800px;
-    height:500px;
+    height:400px;
     overflow-x: auto;
 }
+
 .weather-forecast .table td, th{
     text-align: center;
     vertical-align: middle;

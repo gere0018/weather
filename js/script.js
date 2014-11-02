@@ -38,78 +38,69 @@ document.addEventListener("DOMContentLoaded", function(){
       $today += "<h2>" + weatherData.hourly.data[0].temperature + "&deg" + "</h2>";
       $today += "<p>" +   weatherData.daily.data[0].summary + "</p>";
       
-      $(".weather-forecast").append("<div class = 'today'>" + $today + "</div>");
-      
-      
-      
-      
     //The following will create my table variable and attach data to it.
     var $table = "";
-      $table += "<tr><th>icon</th><th>Time</th><th>Summary</th><th id = 'titleBar'>CloudCover</th><th id = 'titleBar'>Temperature</th><th>Wind Speed</th><th>Humidity</th></tr>"  ;
-    
+      $table += "<tr><th>Time</th><th>Icon</th><th>Summary</th><th id = 'titleBar'>CloudCover</th><th id = 'titleBar'>Temperature</th><th>Wind Speed</th><th>Humidity</th></tr>"  ;
+       
     for(i=0; i < 24; i++){
-    //In the case of the icon, based on the input i want to select which image to diplay, therefore i used switch/case method.
-        
-        switch(weatherData.hourly.data[i].icon){
-            case "clear-day":$table += "<tr><td><img src =\
-                       'images/clear-day.png'>\
-                       </img></td>";
-                break;
-            
-            case "clear-night":$table += "<tr><td><img src =\
-                       'images/clear-night.png'>\
-                       </img></td>";
-                break;
-                
-            case "rain":$table += "<tr><td><img src = 'images/rain.png'>\
-                       </img></td>";
-                break;
-                
-            case "snow":$table += "<tr><td><img src = 'images/snow.png'>\
-                       </img></td>";
-                break;
-                
-             case "sleet":$table += "<tr><td><img src = 'images/sleet.png'>\
-                       </img></td>";
-                break;
-            
-            case "wind":$table += "<tr><td><img src = 'images/wind.png'>\
-                       </img></td>";
-                break;
-                
-            case "fog":$table += "<tr><td><img src = 'images/fog.png'>\
-                       </img></td>";
-                break;
-                
-            case "cloudy":
-                $table += "<tr><td><img src = 'images/cloudy-day.png'>\
-                        </img></td>";
-                break;
-            
-            case "partly-cloudy-day":
-                $table += "<tr><td><img src = 'images/partly-cloudy-day.png'>\
-                        </img></td>";
-                break;
-        
-            case "partly-cloudy-night":
-                $table += "<tr><td><img src = 'images/partly-cloudy-night.png'>\
-                       </img></td>";
-                break;            
-        
-    }
-        //for my time, I need to display it in a more readable format.the forecast api gives the time in seconds. 
         var time = new Date((weatherData.hourly.data[i].time) * 1000);
         var hours = time.getHours();
-        console.log(hours);
         if (hours === 0) {
-            $table += "<td>" + "12am" + "</td>";
+            $table += "<tr><td>" + "12am" + "</td>";
         } else if (hours === 12) {
-            $table += "<td>" + "12pm" + "</td>";
+            $table += "<tr><td>" + "12pm" + "</td>";
         } else if (hours > 12) {
-            $table += "<td>" + (hours - 12) + "pm" + "</td>";
+            $table += "<tr><td>" + (hours - 12) + "pm" + "</td>";
         } else {
-           $table += "<td>" + hours + "am" + "</td>";
+           $table += "<tr><td>" + hours + "am" + "</td>";
         }
+    //In the case of the icon, based on the input i want to select which image to diplay, therefore i used switch/case method.
+        
+                                                                            switch(weatherData.hourly.data[i].icon){
+                                                                                case "clear-day":
+     $table += "<td><img src ='images/clear-day.png'></img></td>";
+     break;
+
+     case "clear-night":
+     $table += "<td><img src ='images/clear-night.png'></img></td>";
+     break;
+                                                                                case "rain":
+     $table += "<td><img src = 'images/rain.png'></img></td>";
+     break;
+                 
+      case "snow":
+     $table += "<td><img src = 'images/snow.png'></img></td>";
+     break;
+
+     case "sleet":
+     $table += "<td><img src = 'images/sleet.png'></img></td>";
+     break;
+                                                                                case "wind":
+       $table += "<td><img src = 'images/wind.png'></img></td>";
+     break;
+                                                                                case "fog":
+        $table += "<td><img src = 'images/fog.png'></img></td>";
+        break;
+
+                                                                                case "cloudy":
+       if(hours > 18){
+         $table += "<td><img src = 'images/cloudy-night.png'></img></td>";                                                                                  }else{
+         $table += "<td><img src = 'images/cloudy-day.png'></img></td>";          }
+     break;
+
+                                                                                case "partly-cloudy-day":
+         $table += "<td><img src = 'images/partly-cloudy-day.png'>\
+      </img></td>";
+                                                                                    break;
+
+                                                                                case "partly-cloudy-night":
+         $table += "<td><img src = 'images/partly-cloudy-night.png'>\
+      </img></td>";
+     break;            
+
+                                                                        }
+        //for my time, I need to display it in a more readable format.the forecast api gives the time in seconds. 
+       
         
                 
         $table += "<td>" + weatherData.hourly.data[i].summary + "</td>";
@@ -118,11 +109,11 @@ document.addEventListener("DOMContentLoaded", function(){
         $table += "<td>" + weatherData.hourly.data[i].windSpeed + "</td>";
         $table += "<td>" + weatherData.hourly.data[i].humidity + "</td></tr>";
         
-        
-        
     }  
       
-      $(".weather-forecast").append("<div class = 'table'><table>" + $table + "</table></div>");
+     
+      $(".weather-forecast").append("<div class = 'container'><div class = 'today'>" + $today + "</div>" + "<div class = 'table'><table>" + $table + "</table></div></div>");
+     
       
     });
 

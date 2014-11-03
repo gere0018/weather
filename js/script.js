@@ -107,12 +107,12 @@ document.addEventListener("DOMContentLoaded", function(){
         $table += "<td>" + weatherData.hourly.data[i].cloudCover + " %" + "</td>";
         $table += "<td>" + weatherData.hourly.data[i].temperature + " &deg" + "</td>";
         $table += "<td>" + weatherData.hourly.data[i].windSpeed + " Kph" + "</td>";
-        $table += "<td>" + weatherData.hourly.data[i].humidity+ " %" + "</td></tr>";
+        $table += "<td>" + weatherData.hourly.data[i].humidity + " %" + "</td></tr>";
         
     }  
       
      
-      $(".weather-forecast").append("<div class = 'container'><div class = 'today'>" + $today + "</div>" + "<div class = 'table'><table>" + $table + "</table></div></div>");
+      $(".weather-forecast").append("<div class = 'container'><div class = 'backgroundToday'><div class = 'today'>" + $today + "</div>"+ "</div>" + "<div class = 'table'><table>" + $table + "</table></div></div>");
      
       
     });

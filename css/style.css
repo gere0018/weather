@@ -24,6 +24,7 @@ p{
   text-align: center;
   background-color: #60E7FF;
   padding: 5px;
+    
 }
 
 
@@ -31,9 +32,10 @@ p{
 /*Table Style*/
 .weather-forecast .table{
     background-color: #4CA7E8;
-    width: 800px;
+    max-width: 780px;
     height:400px;
-    overflow-x: auto;
+    overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .weather-forecast .table td, th{
